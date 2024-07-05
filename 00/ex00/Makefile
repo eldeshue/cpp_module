@@ -8,15 +8,16 @@ LDXXFLAGS =
 
 SRCS = main.cc
 
-OBJS = $(SRCS:.cpp=.o) $(SRCS:.cc=.o)
+OBJS_CPP = $(SRCS:.cpp=.o)
+OBJS_CC = $(SRCS:.cc=.o)
 
 all: $(NAME)
 
 %.o : %.cc, %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
-	$(CC) $(OBJS) -o $@ $(LDXXFLAGS)
+$(NAME) : $(OBJS_CC) $(OBJS_CPP)
+	$(CC) $(OBJS_CC) $(OBJS_CPP) -o $@ $(LDXXFLAGS)
 
 clean:
 	rm -f $(OBJS)
