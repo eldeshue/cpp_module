@@ -6,13 +6,13 @@ CC = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
-SRCS = main.cc
+SRCS = megaphone.cpp
 
-OBJS = $(SRCS:.cc=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cc
+%.o : %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
