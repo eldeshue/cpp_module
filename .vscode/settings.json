@@ -2,6 +2,13 @@
 "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
 "C_Cpp.default.cppStandard": "c++98",
 "files.associations": {
-	"functional": "cpp"
+	"functional": "cpp",
+	"array": "cpp",
+	"deque": "cpp",
+	"string": "cpp",
+	"unordered_map": "cpp",
+	"vector": "cpp",
+	"string_view": "cpp",
+	"initializer_list": "cpp"
 }
 }
