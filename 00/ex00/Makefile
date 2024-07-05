@@ -8,16 +8,15 @@ LDXXFLAGS =
 
 SRCS = main.cc
 
-OBJS_CPP = $(SRCS:.cpp=.o)
-OBJS_CC = $(SRCS:.cc=.o)
+OBJS = $(SRCS:.cc=.o)
 
 all: $(NAME)
 
-%.o : %.cc, %.cpp
+%.o : %.cc
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS_CC) $(OBJS_CPP)
-	$(CC) $(OBJS_CC) $(OBJS_CPP) -o $@ $(LDXXFLAGS)
+$(NAME) : $(OBJS)
+	$(CC) $(OBJS) -o $@ $(LDXXFLAGS)
 
 clean:
 	rm -f $(OBJS)
@@ -30,11 +29,4 @@ re:
 	make all
 
 .PHONY: clean fclean re all
-
-# result file name
-NAME = ./philo
-
-# compiler
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
 
