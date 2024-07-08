@@ -34,6 +34,7 @@ PhoneBook &PhoneBook::operator=(const PhoneBook &rhs)
 void PhoneBook::add(const Contact &c)
 {
 	array[endPos] = c;
+	array[endPos].setIndex(endPos);
 	endPos = (endPos + 1) % PHONE_BOOK_SIZE;
 	if (cnt < 8)
 		cnt++;
