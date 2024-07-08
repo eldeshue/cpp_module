@@ -4,24 +4,51 @@
 
 int main()
 {
+	PhoneBook pb;
 	std::string query;
+	std::cout << "Welcome to the PhoneBook.\n Available Command : EXIT, ADD, SEARCH.\n";
 	while (std::cin >> query)
 	{
 		if (query == "EXIT")
+		{
+			std::cout << "EXIT, terminate PhoneBook.\n";
 			break;
+		}
 		else if (query == "ADD")
 		{
-			// add
-			// need aditional input
+			Contact temp;
+			std::cout << "ADD, type each field to init contact.\n First Name : ";
+			std::cin >> query;
+			temp.setFName(query);
+			std::cout << "Last Name : ";
+			std::cin >> query;
+			temp.setLName(query);
+			std::cout << "Nick Name : ";
+			std::cin >> query;
+			temp.setNName(query);
+			std::cout << "Phone Number : ";
+			std::cin >> query;
+			temp.setPNum(query);
+			std::cout << "Darkest Secret : ";
+			std::cin >> query;
+			temp.setDarkSecret(query);
+			pb.add(temp);
 		}
 		else if (query == "SEARCH")
 		{
-			// get index
-			// print
+			int targetIndex;
+			std::cout << "SEARCH, list of Contact." << pb << "type index of Contact to search : ";
+			std::cin >> targetIndex;
+			if (0 > targetIndex || targetIndex >= pb.size())
+			{
+				std::cout << "Error : Index out of range.\n";
+			}
+			else
+				std::cout << pb.getContact(targetIndex);
 		}
 		else
 		{
-			// ignore
+			std::cout << "Error : Wrong command. EXIT, ADD, SEARCH are available.\n";
 		}
 	}
 }
