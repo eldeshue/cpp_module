@@ -37,7 +37,8 @@ int main()
 		else if (query == "SEARCH")
 		{
 			int targetIndex;
-			std::cout << "SEARCH, list of Contact." << pb << "type index of Contact to search : ";
+			std::cout << "SEARCH, list of Contact.\n"
+					  << pb << "type index of Contact to search : ";
 			std::cin >> targetIndex;
 			if (0 > targetIndex || targetIndex >= pb.size())
 			{
