@@ -24,7 +24,7 @@ public:
 	const Contact &getContact(int idx) const;
 	const int &size() const;
 
-	void PhoneBook::printFormatField(std::ostream &os, const std::string &colum) const;
+	void printFormatField(std::ostream &os, const std::string &colum) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const PhoneBook &pb);

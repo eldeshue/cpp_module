@@ -83,5 +83,5 @@ std::ostream &operator<<(std::ostream &os, const PhoneBook &pb)
 		pb.printFormatField(os, pb.getContact(i).getNName());
 		os << '\n';
 	}
-	os << std::endl;
+	return os << std::endl;
 }
