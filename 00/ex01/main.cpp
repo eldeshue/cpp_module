@@ -17,19 +17,19 @@ int main()
 		else if (query == "ADD")
 		{
 			Contact temp;
-			std::cout << "ADD, type each field to init contact.\nFirst Name : ";
+			std::cout << "ADD, type each field to init contact.\nFirst Name	: ";
 			std::cin >> query;
 			temp.setFName(query);
-			std::cout << "Last Name : ";
+			std::cout << "Last Name	: ";
 			std::cin >> query;
 			temp.setLName(query);
-			std::cout << "Nick Name : ";
+			std::cout << "Nick Name	: ";
 			std::cin >> query;
 			temp.setNName(query);
-			std::cout << "Phone Number : ";
+			std::cout << "Phone Number	: ";
 			std::cin >> query;
 			temp.setPNum(query);
-			std::cout << "Darkest Secret : ";
+			std::cout << "Darkest Secret	: ";
 			std::cin >> query;
 			temp.setDarkSecret(query);
 			pb.add(temp);
