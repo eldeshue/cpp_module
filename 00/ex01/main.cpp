@@ -6,7 +6,7 @@ int main()
 {
 	PhoneBook pb;
 	std::string query;
-	std::cout << "Welcome to the PhoneBook.\n Available Command : EXIT, ADD, SEARCH.\n";
+	std::cout << "Welcome to the PhoneBook.\nAvailable Command : EXIT, ADD, SEARCH.\n";
 	while (std::cin >> query)
 	{
 		if (query == "EXIT")
@@ -17,7 +17,7 @@ int main()
 		else if (query == "ADD")
 		{
 			Contact temp;
-			std::cout << "ADD, type each field to init contact.\n First Name : ";
+			std::cout << "ADD, type each field to init contact.\nFirst Name : ";
 			std::cin >> query;
 			temp.setFName(query);
 			std::cout << "Last Name : ";
@@ -50,5 +50,6 @@ int main()
 		{
 			std::cout << "Error : Wrong command. EXIT, ADD, SEARCH are available.\n";
 		}
+		std::cout << "Available Command : EXIT, ADD, SEARCH.\n";
 	}
 }
