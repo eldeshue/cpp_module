@@ -1,7 +1,9 @@
 
 #include "Account.hpp"
 #include <iostream>
+#include <string>
 #include <ctime>
+#include <sstream>
 
 int Account::getNbAccounts(void)
 {
@@ -107,7 +109,30 @@ void Account::displayStatus(void) const
 void Account::_displayTimestamp(void)
 {
 	std::string timeStamp("[");
+	std::ostringstream osstream(timeStamp);
+
 	// set time stamp
+	time_t rawTime;
+	time(&rawTime);
+	struct tm *nt = localtime(&rawTime);
+	// yyyyMMdd-hhmmss
+	osstream << nt->tm_year;
+	if (nt->tm_mon < 10)
+		osstream << 0;
+	osstream << nt->tm_mon;
+	if (nt->tm_mday < 0)
+		osstream << 0;
+	osstream << nt->tm_mday;
+	osstream << '_';
+	if (nt->tm_hour < 10)
+		osstream << 0;
+	osstream << nt->tm_hour;
+	if (nt->tm_min < 10)
+		osstream << 0;
+	osstream << nt->tm_min;
+	if (nt->tm_sec < 10)
+		osstream << 0;
+	osstream << nt->tm_sec;
 	timeStamp.push_back(']');
 	std::cout << timeStamp;
 }
