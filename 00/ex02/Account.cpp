@@ -5,6 +5,11 @@
 #include <ctime>
 #include <sstream>
 
+int Account::_nbAccounts;
+int Account::_totalAmount;
+int Account::_totalNbDeposits;
+int Account::_totalNbWithdrawals;
+
 int Account::getNbAccounts(void)
 {
 	return Account::_nbAccounts;
@@ -108,15 +113,13 @@ void Account::displayStatus(void) const
 // print timestamp using ctime
 void Account::_displayTimestamp(void)
 {
-	std::string timeStamp("[");
-	std::ostringstream osstream(timeStamp);
+	std::ostringstream osstream;
 
-	// set time stamp
+	osstream << '[';
 	time_t rawTime;
 	time(&rawTime);
 	struct tm *nt = localtime(&rawTime);
-	// yyyyMMdd-hhmmss
-	osstream << nt->tm_year;
+	osstream << nt->tm_year + 1900;
 	if (nt->tm_mon < 10)
 		osstream << 0;
 	osstream << nt->tm_mon;
@@ -132,7 +135,6 @@ void Account::_displayTimestamp(void)
 	osstream << nt->tm_min;
 	if (nt->tm_sec < 10)
 		osstream << 0;
-	osstream << nt->tm_sec;
-	timeStamp.push_back(']');
-	std::cout << timeStamp;
+	osstream << nt->tm_sec << ']';
+	std::cout << osstream.str();
 }
