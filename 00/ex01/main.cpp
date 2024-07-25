@@ -5,6 +5,8 @@
 
 bool inputSanityCheck(const std::string &str)
 {
+	bool allSpaceFlag = true;
+
 	for (std::string::const_iterator itr = str.begin(); itr != str.end(); itr++)
 	{
 		if (!std::isprint(*itr))
@@ -13,6 +15,16 @@ bool inputSanityCheck(const std::string &str)
 			std::cout << "Available Command : EXIT, ADD, SEARCH.\n";
 			return false;
 		}
+		if (!std::isspace(*itr))
+		{
+			allSpaceFlag = false;
+		}
+	}
+	if (allSpaceFlag)
+	{
+		std::cerr << "Error : Can't have empty field. Go back to read command.\n";
+		std::cout << "Available Command : EXIT, ADD, SEARCH.\n";
+		return false;
 	}
 	return true;
 }
