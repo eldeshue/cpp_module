@@ -4,17 +4,8 @@
 Contact::Contact() : index(-1), firstName(DEFAULT_STRING_VAL), lastName(DEFAULT_STRING_VAL), nickName(DEFAULT_STRING_VAL),
 					 phoneNumber(DEFAULT_STRING_VAL), darkestSecret(DEFAULT_STRING_VAL) {}
 
-Contact::Contact(const Contact &c)
-{
-	if (this == &c)
-		return;
-	index = c.index;
-	firstName = c.firstName;
-	lastName = c.lastName;
-	nickName = c.nickName;
-	phoneNumber = c.phoneNumber;
-	darkestSecret = c.darkestSecret;
-}
+Contact::Contact(const Contact &c) : index(c.index), firstName(c.firstName), lastName(c.lastName), nickName(c.nickName),
+									 phoneNumber(c.phoneNumber), darkestSecret(c.darkestSecret) {}
 
 Contact::~Contact() {}
 
