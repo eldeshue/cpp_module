@@ -1,5 +1,5 @@
 # result file name
-NAME = tests
+NAME = cpp01ex02
 
 # compiler
 CC = g++
