@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:08:46 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/25 22:05:10 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/26 01:04:52 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,15 @@ Fixed &Fixed::operator-=(const Fixed &other)
 
 Fixed &Fixed::operator*=(const Fixed &other)
 {
-	*this = this->toFloat() * other.toFloat();
+	this->bitData =
+		(static_cast<long long>(this->bitData) * static_cast<long long>(other.bitData)) >> binaryPoint;
 	return *this;
 }
 
 Fixed &Fixed::operator/=(const Fixed &other)
 {
-	*this = this->toFloat() / other.toFloat();
+	this->bitData =
+		(static_cast<long long>(this->bitData) << binaryPoint) / static_cast<long long>(other.bitData);
 	return *this;
 }
 
