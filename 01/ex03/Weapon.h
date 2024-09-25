@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:41:16 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 18:15:46 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:01:26 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Weapon(const Weapon &w);
 	Weapon(const std::string &t);
 	~Weapon();
-	const Weapon &operator=(const Weapon &rhs);
+	Weapon &operator=(const Weapon &rhs);
 
 	const std::string &getType() const;
 	void setType(const std::string &t);

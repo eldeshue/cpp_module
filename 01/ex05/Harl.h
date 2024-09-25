@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 19:27:57 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/24 20:31:36 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:01:38 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 	void error();
 
 	Harl(const Harl &h);
-	const Harl &operator=(const Harl &rhs);
+	Harl &operator=(const Harl &rhs);
 
 public:
 	Harl();

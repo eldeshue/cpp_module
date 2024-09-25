@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:09:24 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 13:24:52 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:05:33 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Zombie::~Zombie()
 	std::cout << "Zombie " << name << " is destructed." << std::endl;
 }
 
-const Zombie &Zombie::operator=(const Zombie &rhs)
+Zombie &Zombie::operator=(const Zombie &rhs)
 {
 	if (this != &rhs)
 		name = rhs.name;

@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:08:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 13:15:58 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:00:37 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Zombie(const Zombie &z);
 	~Zombie();
 
-	const Zombie &operator=(const Zombie &rhs);
+	Zombie &operator=(const Zombie &rhs);
 	void announce(void);
 };
 

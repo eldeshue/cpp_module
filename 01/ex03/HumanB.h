@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:56:11 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 18:20:50 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:01:19 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	HumanB(const HumanB &h);
 	~HumanB();
 
-	const HumanB &operator=(const HumanB &rhs);
+	HumanB &operator=(const HumanB &rhs);
 
 	void setWeapon(Weapon &w);
 	void attack() const;

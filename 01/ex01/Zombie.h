@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:08:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 13:47:09 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:00:54 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 	void setName(const std::string &name);
 
-	const Zombie &operator=(const Zombie &rhs);
+	Zombie &operator=(const Zombie &rhs);
 	void announce(void);
 };
 

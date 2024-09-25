@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:51:34 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/23 18:11:54 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/25 17:04:29 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanB::~HumanB()
 {
 }
 
-const HumanB &HumanB::operator=(const HumanB &rhs)
+HumanB &HumanB::operator=(const HumanB &rhs)
 {
 	if (this != &rhs)
 	{
