@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 03:26:28 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/28 03:52:38 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/09/28 12:55:16 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Point::~Point()
 
 Point &Point::operator=(const Point &rhs)
 {
+	if (this == &rhs)
+		return *this;
 	delete x;
 	delete y;
 	x = new Fixed(rhs.getX());

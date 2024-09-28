@@ -1,5 +1,5 @@
 # result file name
-NAME = cpp02ex00
+NAME = cpp02ex01
 
 # compiler
 CC = g++
