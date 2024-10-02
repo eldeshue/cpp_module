@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:11:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/02 19:42:44 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/02 19:49:33 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void DiamondTrap::attack(const std::string &target)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "Diamond Name : " << DiamondTrap::name << " | Clap Name : " << name << '\n';
+	std::cout << "Diamond Name : " << DiamondTrap::name << " | Clap Name : " << ClapTrap::name << '\n';
 }
