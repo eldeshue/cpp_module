@@ -6,14 +6,14 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:11:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/02 19:38:38 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/02 19:42:44 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "DiamondTrap.h"
 
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + BASE_NAME_SUFFIX), ScavTrap(name), FragTrap(name), name(name)
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + BASE_NAME_SUFFIX), FragTrap(name), ScavTrap(name), name(name)
 {
 	std::cout << "DiamondTrap " << name << " is constructed.\n";
 	hitPoints = FRAG_HP;
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + BASE_NAME_SU
 	attackDamage = FRAG_AP;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other), name(other.name)
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), FragTrap(other), ScavTrap(other), name(other.name)
 {
 	std::cout << "DiamondTrap " << name << " is copy constructed.\n";
 }
