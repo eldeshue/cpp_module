@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:11:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/02 19:49:33 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/02 20:48:09 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ClapTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 
 void DiamondTrap::attack(const std::string &target)
 {
-	return static_cast<ScavTrap *>(this)->attack(target);
+	return ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()
