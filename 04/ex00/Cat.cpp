@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:11:21 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 20:17:05 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 20:22:01 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat &Cat::operator=(const Cat &rhs)
 	return *this;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "Meowwww !!!\n";
 }

@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:12:27 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 17:12:55 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 20:21:55 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 
 	Cat &operator=(const Cat &rhs);
 
-	void makeSound();
+	virtual void makeSound() const;
 };
 
 #endif
