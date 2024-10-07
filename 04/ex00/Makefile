@@ -6,7 +6,7 @@ CC = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
-SRCS = main.cpp Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp
+SRCS = Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

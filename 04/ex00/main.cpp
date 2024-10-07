@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:32:41 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 19:57:02 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 20:15:28 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,19 @@ int main()
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
+	delete meta;
+	delete i;
+	delete j;
 
 	// wrong cat
-	const WrongAnimal *meta = new WrongAnimal();
+	const WrongAnimal *wMeta = new WrongAnimal();
 	const WrongAnimal *k = new WrongCat();
 	const WrongCat &l = *(static_cast<const WrongCat *>(k));
 	std::cout << k->getType() << " " << std::endl;
 	std::cout << l.getType() << " " << std::endl;
 	k->makeSound();
 	l.makeSound();
+
+	delete wMeta;
+	delete k;
 }
