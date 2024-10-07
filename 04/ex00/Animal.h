@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:35:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 16:51:59 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 16:55:03 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Animal();
 	Animal(const std::string &t);
 	Animal(const Animal &other);
-	~Animal();
+	virtual ~Animal();
 
 	Animal &operator=(const Animal &rhs);
 
