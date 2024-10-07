@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:23:54 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 19:49:34 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 20:17:31 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs)
 {
 	type = rhs.type;
+	return *this;
 }
 
 void WrongAnimal::makeSound() const
