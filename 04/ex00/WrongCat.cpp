@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:27:33 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 17:31:26 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 19:57:54 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ WrongCat &WrongCat::operator=(const WrongCat &rhs)
 	static_cast<WrongAnimal &>(*this) = static_cast<const WrongAnimal &>(rhs);
 }
 
-void WrongCat::makeSound()
+void WrongCat::makeSound() const
 {
 	std::cout << "Wrong Meowwww !!!\n";
 }

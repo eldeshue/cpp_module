@@ -6,12 +6,12 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:28:55 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 17:28:59 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 19:57:39 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#ifndef WRONG_CAT_H
+#define WRONG_CAT_H
 
 #include "WrongAnimal.h"
 
@@ -24,7 +24,7 @@ public:
 
 	WrongCat &operator=(const WrongCat &rhs);
 
-	void makeSound();
+	void makeSound() const;
 };
 
 #endif
