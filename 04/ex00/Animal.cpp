@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:39:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 16:52:41 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 19:43:26 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ Animal &Animal::operator=(const Animal &rhs)
 	type = rhs.type;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "DEFAULT ANIMAL SOUND\n";
+}
+
+const std::string &Animal::getType() const
+{
+	return type;
 }

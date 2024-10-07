@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:35:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 17:00:37 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 19:42:47 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ public:
 
 	Animal &operator=(const Animal &rhs);
 
-	virtual void makeSound();
+	virtual void makeSound() const;
+	const std::string &getType() const;
 };
 
 #endif

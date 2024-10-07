@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:15:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 17:16:17 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/07 19:49:03 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ public:
 
 	WrongAnimal &operator=(const WrongAnimal &rhs);
 
-	void makeSound();
+	void makeSound() const;
+	const std::string &getType() const;
 };
 
 #endif
