@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:27:33 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 20:17:39 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:03:52 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ WrongCat::~WrongCat()
 
 WrongCat &WrongCat::operator=(const WrongCat &rhs)
 {
-	static_cast<WrongAnimal &>(*this) = static_cast<const WrongAnimal &>(rhs);
+	if (this != &rhs)
+		static_cast<WrongAnimal &>(*this) = static_cast<const WrongAnimal &>(rhs);
 	return *this;
 }
 

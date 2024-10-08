@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 15:29:13 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/02 19:07:59 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:07:16 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ FragTrap::~FragTrap()
 FragTrap &FragTrap::operator=(const FragTrap &rhs)
 {
 	std::cout << "FragTrap " << rhs.name << " is assigned.\n";
-	static_cast<ClapTrap>(*this) = static_cast<ClapTrap>(rhs);
+	if (this != &rhs)
+		static_cast<ClapTrap>(*this) = static_cast<ClapTrap>(rhs);
 	return *this;
 }
 

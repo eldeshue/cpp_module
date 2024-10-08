@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:39:51 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 20:16:57 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:02:17 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Animal::~Animal()
 
 Animal &Animal::operator=(const Animal &rhs)
 {
-	type = rhs.type;
+	if (this != &rhs)
+		type = rhs.type;
 	return *this;
 }
 

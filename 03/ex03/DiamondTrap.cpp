@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 19:11:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/02 20:48:09 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:06:37 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ DiamondTrap::~DiamondTrap()
 ClapTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 {
 	std::cout << "DiamondTrap " << name << " is copy assigned.\n";
-	*(static_cast<ClapTrap *>(this)) = static_cast<const ClapTrap &>(rhs);
-	DiamondTrap::name = rhs.DiamondTrap::name;
+	if (this != &rhs)
+	{
+		*(static_cast<ClapTrap *>(this)) = static_cast<const ClapTrap &>(rhs);
+		DiamondTrap::name = rhs.DiamondTrap::name;
+	}
 	return *this;
 }
 

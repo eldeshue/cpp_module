@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:16:03 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/28 14:29:08 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:05:11 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ ScavTrap::~ScavTrap()
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
 	std::cout << "ScavTrap " << rhs.name << " is assigned.\n";
-	static_cast<ClapTrap>(*this) = static_cast<ClapTrap>(rhs);
+	if (this != &rhs)
+		static_cast<ClapTrap>(*this) = static_cast<ClapTrap>(rhs);
 	return *this;
 }
 

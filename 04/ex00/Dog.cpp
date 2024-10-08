@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:06:40 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/07 20:21:29 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:03:32 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Dog::~Dog()
 
 Dog &Dog::operator=(const Dog &rhs)
 {
-	static_cast<Animal &>(*this) = static_cast<const Animal &>(rhs);
+	if (this != &rhs)
+		static_cast<Animal &>(*this) = static_cast<const Animal &>(rhs);
 	return *this;
 }
 
