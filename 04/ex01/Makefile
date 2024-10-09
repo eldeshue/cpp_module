@@ -1,12 +1,12 @@
 # result file name
-NAME = cpp04ex00
+NAME = cpp04ex01
 
 # compiler
 CC = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
-SRCS = Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp main.cpp
+SRCS = Brain.cpp Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
