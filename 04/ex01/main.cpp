@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:32:41 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/09 16:43:50 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/09 17:12:22 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,56 @@
 #include "WrongAnimal.h"
 #include "WrongCat.h"
 
+// execute with : valgrind --leak-check=full ./cpp04ex01
+
 int main()
 {
-	// brain test.
-	Brain b;
-	b[98] = "test";
+	std::cout << "===== basic test =====\n";
+	Animal *i = new Cat();
+	Animal *j = new Dog();
+	delete i;
+	delete j;
+	std::cout << "===== brain test =====\n";
+	Brain *pB = new Brain();
+	(*pB)[98] = "test";
+	std::cout << "brain's 98'th idea : " << (*pB)[98] << '\n';
+	std::cout << "assign idea, out of range.\n";
 	try
 	{
-		b[101] = "error";
+		(*pB)[101] = "error";
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	delete pB;
+	std::cout << "===== Ctor test =====\n";
+	Cat *pC = new Cat();
+	Dog *pD = new Dog();
+	std::cout << "====== copy ctor test \n";
+	Cat *pC_copy = new Cat(*pC);
+	Dog *pD_copy = new Dog(*pD);
+	std::cout << "===== access test ===\n";
+	try
+	{
+		(*pC)[1055] = "test2";
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		(*pD)[-5] = "test3";
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "===== dtor test ====\n";
+	delete pC;
+	delete pD;
+	delete pC_copy;
+	delete pD_copy;
+	std::cout << "===== test done ====\n";
 }
