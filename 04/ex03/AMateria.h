@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:51:06 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/09 21:20:05 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/14 22:11:29 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define A_MATERIA_H
 
 #include <string>
-#include "ICharacter.h"
 
+class ICharacter;
 /*
 	Abstract Material Class
 
@@ -35,6 +35,7 @@ public:
 	AMateria &operator=(const AMateria &rhs);
 
 	std::string const &getType() const; // Returns the materia type
+
 	virtual AMateria *clone() const = 0;
 	virtual void use(ICharacter &target);
 };
