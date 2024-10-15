@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:19:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:22:07 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:39:18 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 MateriaSource::MateriaSource()
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 		slot[i] = NULL;
 }
 
 // no ownership
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
 		slot[i] = other.slot[i];
 	}
@@ -37,7 +37,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
 	if (this != &rhs)
 	{
-		for (int i = 0; i < SLOT_SIZE; ++i)
+		for (int i = 0; i < MS_SLOT_SIZE; ++i)
 			slot[i] = rhs.slot[i];
 	}
 	return *this;
@@ -45,7 +45,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 
 void MateriaSource::learnMateria(AMateria *m)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
 		if (slot[i] == NULL)
 			slot[i] = m;
@@ -54,7 +54,7 @@ void MateriaSource::learnMateria(AMateria *m)
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
 		if (slot[i]->getType() == type)
 			return slot[i]->clone();

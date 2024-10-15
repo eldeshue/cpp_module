@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 19:11:25 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:23:22 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:41:35 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Character::Character(const std::string &name) : name(name)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 		slot[i] = NULL;
 }
 
 Character::Character(const Character &other) : name(other.name)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 	{
 		if (other.slot[i] != NULL)
 			slot[i] = other.slot[i]->clone();
@@ -31,7 +31,7 @@ Character::Character(const Character &other) : name(other.name)
 
 Character::~Character()
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 	{
 		delete slot[i];
 	}
@@ -41,10 +41,10 @@ Character &Character::operator=(const Character &rhs)
 {
 	if (this != &rhs)
 	{
-		for (int i = 0; i < SLOT_SIZE; ++i)
+		for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 			delete this->slot[i];
 		this->name = rhs.name;
-		for (int i = 0; i < SLOT_SIZE; ++i)
+		for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 		{
 			if (rhs.slot[i] != NULL)
 				slot[i] = rhs.slot[i]->clone();
@@ -64,7 +64,7 @@ void Character::equip(AMateria *m)
 {
 	if (m == NULL)
 		return;
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	for (int i = 0; i < CHARAC_SLOT_SIZE; ++i)
 	{
 		if (slot[i] == NULL)
 		{
@@ -77,19 +77,19 @@ void Character::equip(AMateria *m)
 // potential threat of resource handling
 void Character::unequip(int idx)
 {
-	if (0 <= idx && idx < SLOT_SIZE)
+	if (0 <= idx && idx < CHARAC_SLOT_SIZE)
 		slot[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (0 <= idx && idx < SLOT_SIZE && slot[idx] != NULL)
+	if (0 <= idx && idx < CHARAC_SLOT_SIZE && slot[idx] != NULL)
 		slot[idx]->use(target);
 }
 
 AMateria *Character::getItem(int idx)
 {
-	if (0 <= idx && idx < SLOT_SIZE)
+	if (0 <= idx && idx < CHARAC_SLOT_SIZE)
 		return slot[idx];
 	else
 		return NULL;

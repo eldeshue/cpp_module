@@ -6,14 +6,14 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:20:23 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 19:35:25 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:40:12 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#define SLOT_SIZE 4
+#define CHARAC_SLOT_SIZE 4
 
 #include "ICharacter.h"
 #include "AMateria.h"
@@ -23,7 +23,7 @@ class Character : public ICharacter
 {
 private:
 	std::string name;
-	AMateria *slot[SLOT_SIZE];
+	AMateria *slot[CHARAC_SLOT_SIZE];
 
 	Character();
 

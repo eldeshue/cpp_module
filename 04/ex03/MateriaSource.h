@@ -6,14 +6,14 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:20:23 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:08:26 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:39:28 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIA_SOURCE_H
 #define MATERIA_SOURCE_H
 
-#define SLOT_SIZE 4
+#define MS_SLOT_SIZE 4
 
 #include "IMateriaSource.h"
 #include "AMateria.h"
@@ -28,7 +28,7 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria *slot[SLOT_SIZE];
+	AMateria *slot[MS_SLOT_SIZE];
 
 public:
 	MateriaSource();
