@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:13:08 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/09 21:13:13 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 18:10:49 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ public:
 
 	virtual AMateria *clone() const;
 	virtual void use(ICharacter &target);
-}
+};
 
 #endif

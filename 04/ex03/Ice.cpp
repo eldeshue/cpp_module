@@ -6,11 +6,12 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:16:07 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/09 21:23:41 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 18:11:27 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.h"
+#include "ICharacter.h"
 #include <iostream>
 
 Ice::Ice() : AMateria("ice")
@@ -29,12 +30,12 @@ Ice &Ice::operator=(const Ice &rhs)
 {
 }
 
-virtual AMateria *Ice::clone() const
+AMateria *Ice::clone() const
 {
 	return new Ice();
 }
 
-virtual void Ice::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }
