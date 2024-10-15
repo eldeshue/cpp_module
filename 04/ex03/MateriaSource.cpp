@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:19:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:39:18 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:50:38 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,38 @@ MateriaSource::MateriaSource()
 		slot[i] = NULL;
 }
 
-// no ownership
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
 	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
-		slot[i] = other.slot[i];
+		if (other.slot[i] != NULL)
+			slot[i] = other.slot[i]->clone();
+		else
+			slot[i] = NULL;
 	}
 }
 
-// no ownership
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < MS_SLOT_SIZE; ++i)
+	{
+		delete slot[i];
+	}
 }
 
-// no ownership
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
 	if (this != &rhs)
 	{
 		for (int i = 0; i < MS_SLOT_SIZE; ++i)
-			slot[i] = rhs.slot[i];
+			delete this->slot[i];
+		for (int i = 0; i < MS_SLOT_SIZE; ++i)
+		{
+			if (rhs.slot[i] != NULL)
+				slot[i] = rhs.slot[i]->clone();
+			else
+				slot[i] = NULL;
+		}
 	}
 	return *this;
 }
@@ -56,7 +67,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
-		if (slot[i]->getType() == type)
+		if (slot[i] != NULL && slot[i]->getType() == type)
 			return slot[i]->clone();
 	}
 	return NULL;
