@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:16:20 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:22:53 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:28:04 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure(const Cure &other) : AMateria("cure")
+Cure::Cure(const Cure &other) : AMateria(other.getType())
 {
 }
 
@@ -28,6 +28,7 @@ Cure::~Cure()
 
 Cure &Cure::operator=(const Cure &rhs)
 {
+	rhs.getType();
 	return *this;
 }
 

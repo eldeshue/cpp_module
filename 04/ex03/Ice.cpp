@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:16:07 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:22:39 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:27:18 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(const Ice &other) : AMateria("Ice")
+Ice::Ice(const Ice &other) : AMateria(other.getType())
 {
 }
 
@@ -28,6 +28,7 @@ Ice::~Ice()
 
 Ice &Ice::operator=(const Ice &rhs)
 {
+	rhs.getType();
 	return *this;
 }
 
