@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 19:11:25 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 22:05:58 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 22:12:51 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void Character::equip(AMateria *m)
 	{
 		if (slot[i] == NULL)
 		{
-			slot[i] = m->clone();
+			slot[i] = m;
 			break;
 		}
 	}
