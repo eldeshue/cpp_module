@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:20:23 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:39:28 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 22:15:56 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 #include "IMateriaSource.h"
 #include "AMateria.h"
 
-/*
-	class for holding AMateria
-
-	no ownership
-	just copy, no cloning
-	just assing, no deleting
-*/
 class MateriaSource : public IMateriaSource
 {
 private:
