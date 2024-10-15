@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:16:07 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 18:11:27 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:22:39 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Ice::~Ice()
 
 Ice &Ice::operator=(const Ice &rhs)
 {
+	return *this;
 }
 
 AMateria *Ice::clone() const

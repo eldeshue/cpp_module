@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:19:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:06:46 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:22:07 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ MateriaSource::~MateriaSource()
 // no ownership
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
-		slot[i] = rhs.slot[i];
+	if (this != &rhs)
+	{
+		for (int i = 0; i < SLOT_SIZE; ++i)
+			slot[i] = rhs.slot[i];
+	}
+	return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *m)

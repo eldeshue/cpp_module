@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 19:11:25 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 20:14:14 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:23:22 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,20 @@ Character::~Character()
 
 Character &Character::operator=(const Character &rhs)
 {
-	for (int i = 0; i < SLOT_SIZE; ++i)
-		delete this->slot[i];
-	this->name = rhs.name;
-	for (int i = 0; i < SLOT_SIZE; ++i)
+	if (this != &rhs)
 	{
-		if (rhs.slot[i] != NULL)
-			slot[i] = rhs.slot[i]->clone();
-		else
-			slot[i] = NULL;
+		for (int i = 0; i < SLOT_SIZE; ++i)
+			delete this->slot[i];
+		this->name = rhs.name;
+		for (int i = 0; i < SLOT_SIZE; ++i)
+		{
+			if (rhs.slot[i] != NULL)
+				slot[i] = rhs.slot[i]->clone();
+			else
+				slot[i] = NULL;
+		}
 	}
+	return *this;
 }
 
 std::string const &Character::getName() const
