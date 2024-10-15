@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:51:06 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 19:17:07 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 21:17:23 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ class AMateria
 protected:
 	std::string type;
 	AMateria();
+	AMateria(const AMateria &other);
+	AMateria &operator=(const AMateria &rhs);
 
 public:
 	AMateria(std::string const &type);
-	AMateria(const AMateria &other);
 	virtual ~AMateria();
-
-	AMateria &operator=(const AMateria &rhs);
 
 	std::string const &getType() const; // Returns the materia type
 
