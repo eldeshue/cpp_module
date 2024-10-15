@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:19:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:50:38 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/15 22:06:42 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ void MateriaSource::learnMateria(AMateria *m)
 	for (int i = 0; i < MS_SLOT_SIZE; ++i)
 	{
 		if (slot[i] == NULL)
+		{
 			slot[i] = m;
+			break;
+		}
 	}
 }
 
