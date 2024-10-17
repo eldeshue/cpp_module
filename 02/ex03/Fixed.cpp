@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:08:46 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/28 03:57:50 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/17 20:02:21 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ float Fixed::toFloat() const
 	return static_cast<float>(bitData) / static_cast<float>(1 << binaryPoint);
 }
 
-float Fixed::toInt() const
+int Fixed::toInt() const
 {
 	return (bitData >> binaryPoint);
 }

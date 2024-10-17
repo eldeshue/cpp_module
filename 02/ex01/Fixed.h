@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:58:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/25 18:36:50 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/17 20:01:29 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
 
 	// explicit converter
 	float toFloat() const;
-	float toInt() const;
+	int toInt() const;
 };
 
 // extraction operator function overloading, not a member function.

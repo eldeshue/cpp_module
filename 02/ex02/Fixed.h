@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:58:09 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/25 21:59:03 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/17 20:01:43 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ public:
 
 	// explicit converter
 	float toFloat() const;
-	float toInt() const;
+	int toInt() const;
 
 	// min, max
 	static Fixed &min(Fixed &f1, Fixed &f2);
