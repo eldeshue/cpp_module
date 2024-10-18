@@ -2,7 +2,7 @@
 NAME = cpp03ex01
 
 # compiler
-CC = g++
+CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
