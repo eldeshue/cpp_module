@@ -2,7 +2,7 @@
 #include "Bureaucrat.h"
 
 Bureaucrat::Bureaucrat(const int grade, const std::string &name)
-try : grade(grade), name(name)
+try : name(name), grade(grade)
 {
 	if (grade > MIN_GRADE)
 	{
@@ -13,14 +13,16 @@ try : grade(grade), name(name)
 		throw Bureaucrat::GradeTooHighException();
 	}
 }
-catch (std::exception &e)
+catch (const std::exception &e)
 {
 	// name will be destructed automatically.
+	// exception e will be copied.
+	std::cerr << e.what() << '\n';
 	throw e;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
-try : grade(other.grade), name(other.name)
+try : name(other.name), grade(other.grade)
 {
 	if (grade > MIN_GRADE)
 	{
@@ -31,9 +33,11 @@ try : grade(other.grade), name(other.name)
 		throw Bureaucrat::GradeTooHighException();
 	}
 }
-catch (std::exception &e)
+catch (const std::exception &e)
 {
 	// name will be destructed automatically.
+	// exception e will be copied.
+	std::cerr << e.what() << '\n';
 	throw e;
 }
 
@@ -44,7 +48,7 @@ const std::string &Bureaucrat::getName() const
 	return name;
 }
 
-const int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return grade;
 }
@@ -65,7 +69,7 @@ void Bureaucrat::decreaseGrade()
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b)
 {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << '.';
+	return os << b.getName() << ", bureaucrat grade " << b.getGrade() << '.';
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

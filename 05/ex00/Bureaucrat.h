@@ -23,7 +23,7 @@ public:
 	~Bureaucrat();
 
 	const std::string &getName() const;
-	const int getGrade() const;
+	int getGrade() const;
 
 	void increaseGrade();
 	void decreaseGrade();
