@@ -16,9 +16,8 @@ try : name(name), grade(grade)
 catch (const std::exception &e)
 {
 	// name will be destructed automatically.
-	// exception e will be copied.
-	std::cerr << e.what() << '\n';
-	throw e;
+	// do not throw e, just throw.
+	throw;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
@@ -36,9 +35,8 @@ try : name(other.name), grade(other.grade)
 catch (const std::exception &e)
 {
 	// name will be destructed automatically.
-	// exception e will be copied.
-	std::cerr << e.what() << '\n';
-	throw e;
+	// do not throw e, just throw.
+	throw;
 }
 
 Bureaucrat::~Bureaucrat() {};
