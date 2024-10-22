@@ -6,8 +6,8 @@
 #include <exception>
 #include <iostream>
 
-#define MAX_GRADE 1
-#define MIN_GRADE 150
+#define MAX_BUREAUCRAT_GRADE 1
+#define MIN_BUREAUCRAT_GRADE 150
 
 class Bureaucrat
 {

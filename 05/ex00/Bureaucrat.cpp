@@ -4,11 +4,11 @@
 Bureaucrat::Bureaucrat(const int grade, const std::string &name)
 try : name(name), grade(grade)
 {
-	if (grade > MIN_GRADE)
+	if (grade > MIN_BUREAUCRAT_GRADE)
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
-	else if (grade < MAX_GRADE)
+	else if (grade < MAX_BUREAUCRAT_GRADE)
 	{
 		throw Bureaucrat::GradeTooHighException();
 	}
@@ -23,11 +23,11 @@ catch (const std::exception &e)
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 try : name(other.name), grade(other.grade)
 {
-	if (grade > MIN_GRADE)
+	if (grade > MIN_BUREAUCRAT_GRADE)
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
-	else if (grade < MAX_GRADE)
+	else if (grade < MAX_BUREAUCRAT_GRADE)
 	{
 		throw Bureaucrat::GradeTooHighException();
 	}
@@ -53,14 +53,14 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::increaseGrade()
 {
-	if (grade == MAX_GRADE)
+	if (grade == MAX_BUREAUCRAT_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	--grade;
 }
 
 void Bureaucrat::decreaseGrade()
 {
-	if (grade == MIN_GRADE)
+	if (grade == MIN_BUREAUCRAT_GRADE)
 		throw Bureaucrat::GradeTooLowException();
 	++grade;
 }
