@@ -24,9 +24,9 @@ public:
 	~Form();
 
 	const std::string &getName() const;
-	const bool getSign() const;
-	const int getGradeToSign() const;
-	const int getGradeToExecute() const;
+	bool getSign() const;
+	int getGradeToSign() const;
+	int getGradeToExecute() const;
 
 	void beSigned(const Bureaucrat &b);
 

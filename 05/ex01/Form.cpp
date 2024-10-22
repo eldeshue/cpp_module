@@ -45,17 +45,17 @@ const std::string &Form::getName() const
 	return name;
 }
 
-const bool Form::getSign() const
+bool Form::getSign() const
 {
 	return sign;
 }
 
-const int Form::getGradeToSign() const
+int Form::getGradeToSign() const
 {
 	return gradeToSign;
 }
 
-const int Form::getGradeToExecute() const
+int Form::getGradeToExecute() const
 {
 	return gradeToExecute;
 }
