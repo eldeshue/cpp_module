@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 03:26:28 by dogwak            #+#    #+#             */
-/*   Updated: 2024/09/28 12:55:16 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/23 14:43:06 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int ccw(const Point &pivot, const Point &p1, const Point &p2)
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	return ((ccw(a, b, c) * ccw(a, b, point)) >= 0) && ((ccw(b, c, a) * ccw(b, c, point)) >= 0) && ((ccw(c, a, b) * ccw(c, a, point)) >= 0);
+	return ((ccw(a, b, c) * ccw(a, b, point)) > 0) && ((ccw(b, c, a) * ccw(b, c, point)) > 0) && ((ccw(c, a, b) * ccw(c, a, point)) > 0);
 }
