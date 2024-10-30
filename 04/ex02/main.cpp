@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:32:41 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/09 19:42:55 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:52:50 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,22 @@ int main()
 	delete pD;
 	delete pC_copy;
 	delete pD_copy;
+	std::cout << "===== half Dog, half Cat deleting test =====\n";
+	Animal *animalPtrs[10];
+	std::cout << "===== Creating Dogs =====\n";
+	for (int i = 0; i < 5; ++i)
+	{
+		animalPtrs[i] = new Dog();
+	}
+	std::cout << "===== Creating Cats =====\n";
+	for (int i = 5; i < 10; ++i)
+	{
+		animalPtrs[i] = new Cat();
+	}
+	std::cout << "===== Deleting Animalss =====\n";
+	for (int i = 0; i < 10; ++i)
+	{
+		delete animalPtrs[i];
+	}
 	std::cout << "===== test done ====\n";
 }
