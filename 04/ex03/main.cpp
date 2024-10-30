@@ -6,9 +6,11 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:10:28 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/30 17:52:11 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/30 19:10:41 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "Character.h"
 #include "MateriaSource.h"
@@ -18,6 +20,7 @@
 
 int main()
 {
+	std::cout << "===== basic test =====\n";
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -36,6 +39,7 @@ int main()
 	me->use(1, *bob);
 
 	// unequip test
+	std::cout << "===== test for unequip materias =====\n";
 	tmp = static_cast<Character *>(me)->getItem(0);
 	me->unequip(0);
 	delete tmp;
