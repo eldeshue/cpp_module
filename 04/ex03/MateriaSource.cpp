@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:19:50 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 22:06:42 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/30 19:06:24 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		if (slot[i] == NULL)
 		{
-			slot[i] = m;
+			slot[i] = m->clone();
 			break;
 		}
 	}
