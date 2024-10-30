@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:10:28 by dogwak            #+#    #+#             */
-/*   Updated: 2024/10/15 21:33:56 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/10/30 17:52:11 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,20 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
+	// unequip test
+	tmp = static_cast<Character *>(me)->getItem(0);
+	me->unequip(0);
+	delete tmp;
+
+	tmp = static_cast<Character *>(me)->getItem(1);
+	me->unequip(1);
+	delete tmp;
+
+	tmp = static_cast<Character *>(me)->getItem(1);
+	me->unequip(2);
+	delete tmp;
+
+	// delete resources
 	delete bob;
 	delete me;
 	delete src;
