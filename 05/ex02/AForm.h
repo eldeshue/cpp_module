@@ -18,6 +18,9 @@ private:
 	AForm();
 	AForm &operator=(const AForm &rhs);
 
+protected:
+	void checkExecutable(Bureaucrat const &executor) const;
+
 public:
 	AForm(const std::string &n, const int gS, const int gE);
 	AForm(const AForm &other);
@@ -30,7 +33,6 @@ public:
 
 	void beSigned(const Bureaucrat &b);
 
-	bool isExecutable(Bureaucrat const &executor) const;
 	virtual void execute(Bureaucrat const &executor) const = 0; // abstract method
 
 	class GradeTooHighException : public std::exception
@@ -38,6 +40,10 @@ public:
 		virtual const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class ExecutionWithoutSignException : public std::exception
 	{
 		virtual const char *what() const throw();
 	};

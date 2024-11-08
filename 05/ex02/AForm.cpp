@@ -69,9 +69,16 @@ void AForm::beSigned(const Bureaucrat &b)
 	sign = true;
 }
 
-bool AForm::isExecutable(Bureaucrat const &executor) const
+void AForm::checkExecutable(Bureaucrat const &executor) const
 {
-	return (sign) && (executor.getGrade() < gradeToExecute);
+	if (!sign)
+	{
+		throw AForm::ExecutionWithoutSignException();
+	}
+	else if (executor.getGrade() > gradeToExecute)
+	{
+		throw AForm::GradeTooLowException();
+	}
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
@@ -82,6 +89,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "AForm Error : grade too low.";
+}
+
+const char *AForm::ExecutionWithoutSignException::what() const throw()
+{
+	return "AForm Error : execution without sign.";
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &f)
