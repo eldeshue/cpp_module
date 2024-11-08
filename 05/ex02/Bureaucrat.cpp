@@ -95,6 +95,7 @@ void Bureaucrat::signForm(AForm &f) const
 	catch (...)
 	{
 		std::cerr << this->name << " couldn't sign " << f.getName() << " because of unknown reasons.\n";
+		throw;
 	}
 }
 
@@ -102,21 +103,20 @@ void Bureaucrat::executeForm(AForm const &form) const
 {
 	try
 	{
-		if (!form.isExecutable(*this))
-			throw AForm::GradeTooLowException();
 		form.execute(*this);
 		std::cout << this->name << " executed " << form.getName() << '\n';
+	}
+	catch (const AForm::ExecutionWithoutSignException &e)
+	{
+		std::cerr << this->name << " couldn't execute " << form.getName() << " because the form is not signed.\n";
 	}
 	catch (const AForm::GradeTooLowException &e)
 	{
 		std::cerr << this->name << " couldn't execute " << form.getName() << " because the grade is too low.\n";
 	}
-	catch (const std::exception &e)
-	{
-		throw;
-	}
 	catch (...)
 	{
 		std::cerr << this->name << " couldn't execute " << form.getName() << " because of unknown reasons.\n";
+		throw;
 	}
 }
