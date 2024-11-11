@@ -4,7 +4,7 @@
 
 #include "AForm.h"
 
-#define RRF_TYPE_NAME "ROBOTOMY REQUEST FORM"
+#define RRF_TYPE_NAME "ROBOTOMY_REQUEST_FORM"
 #define RRF_SIGN_GRADE 72
 #define RRF_EXEC_GRADE 45
 
