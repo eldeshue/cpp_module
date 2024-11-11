@@ -11,6 +11,7 @@ int main()
 {
 	// SchrubberyCreationForm test
 	std::cout << "Test for SchrubberyCreationForm.\n";
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// no sign, no execute
@@ -18,11 +19,13 @@ int main()
 		ShrubberyCreationForm s("target1");
 		a.signForm(s);
 		a.executeForm(s);
+		std::cout << "Target1 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, no execute
@@ -30,11 +33,13 @@ int main()
 		ShrubberyCreationForm s("target2");
 		b.signForm(s);
 		b.executeForm(s);
+		std::cout << "Target2 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, execute
@@ -42,13 +47,16 @@ int main()
 		ShrubberyCreationForm s("target3");
 		c.signForm(s);
 		c.executeForm(s);
+		std::cout << "Target3 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	// RobotomyRequestForm test
 	std::cout << "Test for RobotomyRequestForm.\n";
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// no sign, no execute
@@ -56,11 +64,13 @@ int main()
 		RobotomyRequestForm r("target4");
 		d.signForm(r);
 		d.executeForm(r);
+		std::cout << "Target4 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, no execute
@@ -68,11 +78,13 @@ int main()
 		RobotomyRequestForm r("target5");
 		e.signForm(r);
 		e.executeForm(r);
+		std::cout << "Target5 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, execute
@@ -80,13 +92,16 @@ int main()
 		RobotomyRequestForm r("target6");
 		f.signForm(r);
 		f.executeForm(r);
+		std::cout << "Target6 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	// PresidentialPardonForm test
 	std::cout << "Test for PresidentialPardonForm.\n";
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// no sign, no execute
@@ -94,11 +109,13 @@ int main()
 		PresidentialPardonForm p("target7");
 		g.signForm(p);
 		g.executeForm(p);
+		std::cout << "Target7 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, no execute
@@ -106,11 +123,13 @@ int main()
 		PresidentialPardonForm p("target8");
 		h.signForm(p);
 		h.executeForm(p);
+		std::cout << "Target8 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 	try
 	{
 		// sign, execute
@@ -118,9 +137,11 @@ int main()
 		PresidentialPardonForm p("target9");
 		i.signForm(p);
 		i.executeForm(p);
+		std::cout << "Target9 Succeeded.\n";
 	}
 	catch (...)
 	{
-		std::cout << "Unhandled error thrown.\n";
+		std::cout << "Error thrown.\n";
 	}
+	std::cout << "--------------------------------\n";
 }
