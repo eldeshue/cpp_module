@@ -10,12 +10,12 @@
 class Intern
 {
 private:
+	Intern(const Intern &other);
+	Intern &operator=(const Intern &rhs);
+
 public:
 	Intern();
-	Intern(const Intern &other);
 	~Intern();
-
-	Intern &operator=(const Intern &rhs);
 
 	AForm *makeForm(const std::string &formName, const std::string &formTargetName) const;
 };

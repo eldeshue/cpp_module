@@ -5,15 +5,7 @@ Intern::Intern()
 {
 }
 
-Intern::Intern(const Intern &other)
-{
-}
-
 Intern::~Intern()
-{
-}
-
-Intern &Intern::operator=(const Intern &rhs)
 {
 }
 
