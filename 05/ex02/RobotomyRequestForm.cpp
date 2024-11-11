@@ -1,6 +1,5 @@
 
 #include "RobotomyRequestForm.h"
-#include <fstream>
 #include <ctime>
 #include <cstdlib>
 
@@ -37,7 +36,6 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	{
 		checkExecutable(executor);
 
-		// do something
 		std::cout << "Makes som drilling noises...\n";
 		srand(time(NULL));
 		if (rand() & 1)
