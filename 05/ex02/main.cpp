@@ -10,8 +10,8 @@
 int main()
 {
 	// SchrubberyCreationForm test
-	std::cout << "Test for SchrubberyCreationForm.\n";
 	std::cout << "--------------------------------\n";
+	std::cout << "< Test for SchrubberyCreationForm >\n";
 	try
 	{
 		// no sign, no execute
@@ -55,8 +55,7 @@ int main()
 	}
 	std::cout << "--------------------------------\n";
 	// RobotomyRequestForm test
-	std::cout << "Test for RobotomyRequestForm.\n";
-	std::cout << "--------------------------------\n";
+	std::cout << "< Test for RobotomyRequestForm >\n";
 	try
 	{
 		// no sign, no execute
@@ -100,8 +99,7 @@ int main()
 	}
 	std::cout << "--------------------------------\n";
 	// PresidentialPardonForm test
-	std::cout << "Test for PresidentialPardonForm.\n";
-	std::cout << "--------------------------------\n";
+	std::cout << "< Test for PresidentialPardonForm >\n";
 	try
 	{
 		// no sign, no execute
@@ -144,4 +142,12 @@ int main()
 		std::cout << "Error thrown.\n";
 	}
 	std::cout << "--------------------------------\n";
+	std::cout << "< Robotomy Request Form's random module test >\n";
+	Bureaucrat rBuro(1, "Random Beuro");
+	RobotomyRequestForm rForm("Random test");
+	rBuro.signForm(rForm);
+	for (int i = 0; i < 5; ++i)
+	{
+		rBuro.executeForm(rForm);
+	}
 }
