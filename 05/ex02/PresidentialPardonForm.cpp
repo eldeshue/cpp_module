@@ -26,6 +26,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
 {
 	this->target = rhs.target;
+	return *this;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const

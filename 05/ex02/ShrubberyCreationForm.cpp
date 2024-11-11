@@ -27,6 +27,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
 	this->target = rhs.target;
+	return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const

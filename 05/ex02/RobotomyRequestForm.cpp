@@ -28,6 +28,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
 	this->target = rhs.target;
+	return *this;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
