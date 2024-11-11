@@ -34,7 +34,6 @@ public:
 	void beSigned(const Bureaucrat &b);
 
 	virtual void execute(Bureaucrat const &executor) const = 0; // abstract method
-	virtual AForm *clone(const std::string &target) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{

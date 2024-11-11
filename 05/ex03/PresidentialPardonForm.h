@@ -21,7 +21,7 @@ public:
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
 
 	virtual void execute(Bureaucrat const &executor) const;
-	virtual AForm *clone(const std::string &target) const;
+	static AForm *clone(const std::string &target);
 };
 
 #endif

@@ -43,7 +43,7 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	}
 }
 
-AForm *PresidentialPardonForm::clone(const std::string &target) const
+AForm *PresidentialPardonForm::clone(const std::string &target)
 {
 	return new PresidentialPardonForm(target);
 }
