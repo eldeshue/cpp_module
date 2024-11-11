@@ -3,7 +3,7 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-try : AForm(SFC_TYPE_NAME, SCF_SIGN_GRADE, SCF_EXEC_GRADE), target(target)
+try : AForm(SCF_TYPE_NAME, SCF_SIGN_GRADE, SCF_EXEC_GRADE), target(target)
 {
 }
 catch (const std::exception &e)
