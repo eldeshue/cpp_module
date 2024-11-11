@@ -27,7 +27,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
-	this->target = rhs.target;
+	if (this != &rhs)
+		this->target = rhs.target;
 	return *this;
 }
 
