@@ -6,7 +6,7 @@ CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
-SRCS = whatever.h main.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

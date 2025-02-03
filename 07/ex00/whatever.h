@@ -2,13 +2,15 @@
 #ifndef WHATEVER_H
 #define WHATEVER_H
 
+#include <iostream>
+
 // swap, copy assign operator needed
 template<typename T>
-void swap(T val1, T val2)
+void swap(T& val1, T& val2)
 {
-	T tmp = val1;
-	val1 = val2;
-	val2 = tmp;
+	T tmp = val2;
+	val2 = val1;
+	val1 = tmp;
 }
 
 // min, copy-assing and compare operator needed
