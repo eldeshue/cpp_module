@@ -9,71 +9,52 @@ template<typename T>
 class Array
 {
 private:
-	size_t size;
+	size_t size_;
 	T* pData;
 
 public:
-	Array();
-	Array(Array<T> const& other);
-	Array(unsigned int n);
-	~Array();
+	Array() : size_(0), pData(NULL) {}
+	Array(Array<T> const& other) : size_(other.size_), pData(new T[size_])
+	{
+		for (size_t i = 0; i < size_; ++i)
+			pData[i] = other[i];
+	}
+	Array(unsigned int n) : size_(n), pData(new T[size_]) {}
+	~Array() { delete[](pData); }
 
-	Array<T>& operator=(Array<T> const& rhs);
+	Array<T>& operator=(Array<T> const& rhs)
+	{
+		// self assign
+		if (this == &rhs)
+			return *this;
 
-	T& operator[](int const idx);
+		// delete prev data
+		delete[](pData);
 
-	size_t size() const;
-};
-
-template<typename T>
-Array<T>::Array() : size(0), pData(NULL) {}
-
-template<typename T>
-Array<T>::Array(Array<T> const& other) : size(other.size), pData(new T[size])
-{
-	for (size_t i = 0; i < size; ++i)
-		pData[i] = other[i];
-}
-
-template<typename T>
-Array<T>::Array(unsigned int n) : size(n), pData(new T[size]) {}
-
-template<typename T>
-Array<T>::~Array() {
-	delete[](pData);
-}
-
-
-template<typename T>
-Array<T>& Array<T>::operator=(Array<T> const& rhs)
-{
-	// self assign
-	if (this == &rhs)
+		// assign
+		this->size_ = rhs.size_();
+		pData = new T[this->size_];
+		for (size_t i = 0; i < this->size_; ++i)
+			pData[i] = rhs[i];
 		return *this;
 
-	// delete prev data
-	delete[](pData);
+	}
 
-	// assign
-	size = rhs.size();
-	pData = new T[size];
-	for (size_t i = 0; i < size; ++i)
-		pData[i] = rhs[i];
-	return *this;
-}
+	T& operator[](int const idx)
+	{
+		if (idx < 0 || static_cast<size_t>(idx) >= this->size_)
+			throw std::exception();
+		return pData[idx];
+	}
 
-template<typename T>
-T& Array<T>::operator[](int const idx)
-{
-	if (idx < 0 || idx >= size)
-		throw std::exception();
-	return pData[idx];
-}
+	T const& operator[](int const idx) const
+	{
+		if (idx < 0 || static_cast<size_t>(idx) >= this->size_)
+			throw std::exception();
+		return pData[idx];
+	}
 
-template<typename T>
-size_t Array<T>::size() const
-{
-	return size;
-}
+	size_t size() const { return this->size_; }
+};
 
 #endif
