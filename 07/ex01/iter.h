@@ -7,7 +7,7 @@
 template<typename T, typename UnaryOps>
 void iter(T* arr, size_t len, UnaryOps f)
 {
-	for (int i = 0; i < len; ++i)
+	for (size_t i = 0; i < len; ++i)
 		f(arr[i]);
 }
 
