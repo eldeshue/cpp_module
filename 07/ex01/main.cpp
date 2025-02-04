@@ -43,4 +43,8 @@ int main()
 	iter(test3, 5, print_stdout<std::string>);
 	std::cout << std::endl;
 
+	std::string const test4[5] = { "hello", "my", "name", "is", "dogwak" };
+	iter(test4, 5, print_stdout<std::string>);
+	std::cout << std::endl;
+
 }
