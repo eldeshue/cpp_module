@@ -1,5 +1,5 @@
 
-#include "span.h"
+#include "Span.h"
 #include <limits>
 
 Span::Span(unsigned int N) : limit(N) {}

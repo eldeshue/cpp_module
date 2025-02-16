@@ -16,12 +16,13 @@ int main()
 	std::cout << sp.longestSpan() << std::endl;
 
 	// test2
+	Span sp2(20000);
 	std::vector<int> test(20000);
 	for (int i = 0; i < 20000; ++i)
 		test[i] = i;
-	sp.addNumbers(test.begin(), test.end());
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	sp2.addNumbers(test.begin(), test.end());
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
 
 	return 0;
 }

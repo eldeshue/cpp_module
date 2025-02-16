@@ -9,8 +9,8 @@
 class Span
 {
 private:
-	std::multiset<int> numbers;
 	unsigned int limit;
+	std::multiset<int> numbers;
 public:
 	explicit Span(unsigned int N);
 	Span(Span const& other);
@@ -28,7 +28,7 @@ public:
 			throw std::length_error("size limit exceeded");
 		// insert
 		for (T itr = left; itr != right; ++itr)
-			numbers.insert(*left);
+			numbers.insert(*itr);
 	}
 
 	int shortestSpan() const;
