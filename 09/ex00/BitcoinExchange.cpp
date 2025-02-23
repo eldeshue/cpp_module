@@ -8,6 +8,26 @@
 #include <utility>
 #include <limits>
 
+static bool DbContentCheck(std::string const& line)
+{
+	for (size_t i = 0; i < line.size(); ++i)
+	{
+		if (!(('0' <= line[i]) && (line[i] <= '9')) && !(line[i] == ',') && !(line[i] == '.') && !(line[i] == '-') && !isblank(line[i]))
+			return false;
+	}
+	return true;
+}
+
+static bool InputContentCheck(std::string const& line)
+{
+	for (size_t i = 0; i < line.size(); ++i)
+	{
+		if (!(('0' <= line[i]) && (line[i] <= '9')) && !(line[i] == '|') && !(line[i] == '.') && !(line[i] == '-') && !isblank(line[i]))
+			return false;
+	}
+	return true;
+}
+
 // db name check
 static bool DbNameCheck(std::string const& db_path_name)
 {
@@ -82,7 +102,7 @@ static std::pair<std::string, float> ParseInputLine(std::string const& line)
 	char c = '\0';
 
 	std::stringstream ss(line);
-	if (!(ss >> result.first >> c >> result.second) || c != '|' || !ss.eofbit)
+	if (!InputContentCheck(line) || !(ss >> result.first >> c >> result.second) || c != '|' || !ss.eofbit)
 	{
 		throw std::runtime_error("Error : bad input => " + line);
 	}
@@ -112,6 +132,10 @@ BitcoinExchange::BitcoinExchange(std::string const& db_file_path) {
 		throw std::runtime_error("Error : db file foramt error");
 	while (std::getline(db_file_stream, line_buffer))
 	{
+		// content check
+		if (!DbContentCheck(line_buffer))
+			continue;
+
 		// parse line
 		std::pair<std::string, float> date_and_value = ParseDbLine(line_buffer);
 
