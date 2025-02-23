@@ -96,7 +96,7 @@ static std::pair<std::string, int> ParseInputLine(std::string const& line)
 
 BitcoinExchange::BitcoinExchange(std::string const& db_file_path) {
 	// file name check
-	if (!DbNameCheck(db_file_path))
+	if (db_file_path.size() < 4 || !DbNameCheck(db_file_path))
 		throw std::runtime_error("Error : wrong db name");
 
 	// file open

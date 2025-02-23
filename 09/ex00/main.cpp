@@ -15,26 +15,33 @@ int main(int argc, char* argv[])
 	}
 
 	// second file, DbContext instanciatioin
-	BitcoinExchange btc(argv[2]);
+	try
+	{
+		BitcoinExchange btc(argv[2]);
 
-	// first file, handling query
-	std::fstream input_file_stream(argv[1]);
-	std::string line;
-	std::getline(input_file_stream, line);
-	if (line != "date | value")
-	{
-		std::cerr << "Error : input file foramt error\n";
-		return -1;
+		// first file, handling query
+		std::fstream input_file_stream(argv[1]);
+		std::string line;
+		std::getline(input_file_stream, line);
+		if (line != "date | value")
+		{
+			std::cerr << "Error : input file foramt error\n";
+			return -1;
+		}
+		while (std::getline(input_file_stream, line))
+		{
+			try
+			{
+				btc.query(line);
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+		}
 	}
-	while (std::getline(input_file_stream, line))
+	catch (const std::exception& e)
 	{
-		try
-		{
-			btc.query(line);
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		std::cerr << e.what() << '\n';
 	}
 }
