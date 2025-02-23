@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		std::fstream input_file_stream(argv[1]);
 		std::string line;
 		std::getline(input_file_stream, line);
-		if (line != "date | value")
+		if (line != " date | value")
 		{
 			std::cerr << "Error : input file foramt error\n";
 			return -1;
@@ -43,5 +43,6 @@ int main(int argc, char* argv[])
 	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+		return -1;
 	}
 }

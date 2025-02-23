@@ -24,8 +24,11 @@ static bool DateFormatCheck(std::string const& date)
 	char c;
 
 	// parse check
-	if (ss >> yy >> c >> mm >> c >> dd)
+	if (!(ss >> yy >> c >> mm >> c >> dd))
+	{
 		return false;
+	}
+
 
 	// month check
 	if (mm < 1 && 12 < mm)
@@ -73,21 +76,21 @@ static std::pair<std::string, float> ParseDbLine(std::string const& line)
 }
 
 // parse query input line
-static std::pair<std::string, int> ParseInputLine(std::string const& line)
+static std::pair<std::string, float> ParseInputLine(std::string const& line)
 {
-	std::pair<std::string, int> result;
+	std::pair<std::string, float> result;
+	char c = '\0';
 
 	std::stringstream ss(line);
-	if (!std::getline(ss, result.first, '|') || !(ss >> result.second) || !ss.eofbit)
+	if (!(ss >> result.first >> c >> result.second) || c != '|' || !ss.eofbit)
 	{
 		throw std::runtime_error("Error : bad input => " + line);
 	}
-	long long temp = result.second;
-	if (temp > std::numeric_limits<int>().max())
+	if (result.second > 1000.0f)
 	{
 		throw std::runtime_error("Error : too large a number");
 	}
-	if (result.second < 0)
+	if (result.second < 0.0f)
 	{
 		throw std::runtime_error("Error : not a poistive number");
 	}
@@ -113,7 +116,8 @@ BitcoinExchange::BitcoinExchange(std::string const& db_file_path) {
 		std::pair<std::string, float> date_and_value = ParseDbLine(line_buffer);
 
 		// line sanity check
-		if (DateFormatCheck(date_and_value.first) && date_and_value.second >= 0.0f)
+		if (DateFormatCheck(date_and_value.first)
+			&& 0.0f <= date_and_value.second && date_and_value.second <= 1000.0f)
 		{
 			// initialization
 			db_context_.insert(date_and_value);
@@ -124,14 +128,14 @@ BitcoinExchange::BitcoinExchange(std::string const& db_file_path) {
 void BitcoinExchange::query(std::string const& line) const {
 	// format check
 	// get date and count
-	std::pair<std::string, int> date_and_count = ParseInputLine(line);
+	std::pair<std::string, float> date_and_count = ParseInputLine(line);
 
 	// handling query
 	// get exchange rate
 	std::map<std::string, float>::const_iterator itr = db_context_.upper_bound(date_and_count.first);
-	--itr;
-	if (itr == db_context_.end())
+	if (itr == db_context_.begin())
 		throw std::out_of_range("Error : db out of index");
+	--itr;
 
 	// calculate result
 	std::cout << date_and_count.first << " => " << date_and_count.second << " = " << (*itr).second * date_and_count.second << std::endl;
