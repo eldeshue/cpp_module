@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 template<typename T>
-typename T::iterator easyfind(T const& container, int const target)
+typename T::iterator easyfind(T& container, int const target)
 {
 	typename T::iterator result = std::find(container.begin(), container.end(), target);
 	if (result == container.end())
