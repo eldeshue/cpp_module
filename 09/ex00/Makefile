@@ -6,7 +6,7 @@ CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDXXFLAGS =
 
-SRCS =
+SRCS = main.cpp BitcoinExchange.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -15,10 +15,10 @@ int main(int argc, char* argv[])
 	}
 
 	// second file, DbContext instanciatioin
-	BitcoinExchange btc(argv[1]);
+	BitcoinExchange btc(argv[2]);
 
 	// first file, handling query
-	std::fstream input_file_stream(argv[2]);
+	std::fstream input_file_stream(argv[1]);
 	std::string line;
 	std::getline(input_file_stream, line);
 	if (line != "date | value")

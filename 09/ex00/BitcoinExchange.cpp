@@ -8,6 +8,14 @@
 #include <utility>
 #include <limits>
 
+// db name check
+static bool DbNameCheck(std::string const& db_path_name)
+{
+	size_t const len = db_path_name.size();
+
+	return db_path_name.substr(len - 4) == ".csv";
+}
+
 // date format check
 static bool DateFormatCheck(std::string const& date)
 {
@@ -26,7 +34,7 @@ static bool DateFormatCheck(std::string const& date)
 	}
 
 	// date check
-	bool const is_leap = (((yy % 4) == 0) && ((yy % 100) != 0) || ((yy % 400) == 0));
+	bool const is_leap = ((((yy % 4) == 0) && ((yy % 100) != 0)) || ((yy % 400) == 0));
 	if (is_leap && (mm == 2)
 		&& !((0 < dd) && (dd <= 29)))	// leap day
 	{
@@ -87,6 +95,10 @@ static std::pair<std::string, int> ParseInputLine(std::string const& line)
 }
 
 BitcoinExchange::BitcoinExchange(std::string const& db_file_path) {
+	// file name check
+	if (!DbNameCheck(db_file_path))
+		throw std::runtime_error("Error : wrong db name");
+
 	// file open
 	std::fstream db_file_stream(db_file_path.c_str());
 	std::string line_buffer;
