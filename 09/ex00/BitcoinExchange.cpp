@@ -87,7 +87,7 @@ static std::pair<std::string, float> ParseDbLine(std::string const& line)
 	std::pair<std::string, float> result;
 
 	std::stringstream ss(line);
-	if (!std::getline(ss, result.first, ',') || !(ss >> result.second) || !ss.eofbit)
+	if (!std::getline(ss, result.first, ',') || !(ss >> result.second) || !ss.eof())
 	{
 		// set result as un available value
 		result.second = -1.0f;
@@ -102,7 +102,7 @@ static std::pair<std::string, float> ParseInputLine(std::string const& line)
 	char c = '\0';
 
 	std::stringstream ss(line);
-	if (!InputContentCheck(line) || !(ss >> result.first >> c >> result.second) || c != '|' || !ss.eofbit)
+	if (!InputContentCheck(line) || !(ss >> result.first >> c >> result.second) || c != '|' || !ss.eof())
 	{
 		throw std::runtime_error("Error : bad input => " + line);
 	}
