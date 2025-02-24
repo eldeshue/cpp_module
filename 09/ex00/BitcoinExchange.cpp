@@ -51,7 +51,7 @@ static bool DateFormatCheck(std::string const& date)
 
 
 	// month check
-	if (mm < 1 && 12 < mm)
+	if (mm < 1 || 12 < mm)
 	{
 		return false;
 	}
