@@ -9,7 +9,7 @@
 typedef std::stack<int, std::list<int> > RPNStack;
 
 static bool IsOperator(char const c) {
-	return ((c == '+') || (c == '/') || (c == '*') || (c == '/'));
+	return ((c == '+') || (c == '-') || (c == '*') || (c == '/'));
 }
 
 static bool CheckToken(std::string const& token)
@@ -21,50 +21,50 @@ static bool CheckToken(std::string const& token)
 }
 
 static void AddWithStack(RPNStack& st) {
-	if (st.size() >= 2)
-		throw std::runtime_error("Error : invalid expression");
+	if (st.size() < 2)
+		throw std::runtime_error("Error : invalid expression, need more operand");
 
-	int const op1 = st.top();
-	st.pop();
 	int const op2 = st.top();
+	st.pop();
+	int const op1 = st.top();
 	st.pop();
 	st.push(op1 + op2);
 }
 
 static void SubWithStack(RPNStack& st) {
-	if (st.size() >= 2)
-		throw std::runtime_error("Error : invalid expression");
+	if (st.size() < 2)
+		throw std::runtime_error("Error : invalid expression, need more operand");
 
-	int const op1 = st.top();
-	st.pop();
 	int const op2 = st.top();
+	st.pop();
+	int const op1 = st.top();
 	st.pop();
 	st.push(op1 - op2);
 }
 
 static void MultWithStack(RPNStack& st) {
-	if (st.size() >= 2)
-		throw std::runtime_error("Error : invalid expression");
+	if (st.size() < 2)
+		throw std::runtime_error("Error : invalid expression, need more operand");
 
-	int const op1 = st.top();
-	st.pop();
 	int const op2 = st.top();
+	st.pop();
+	int const op1 = st.top();
 	st.pop();
 	st.push(op1 * op2);
 }
 
 static void DivWithStack(RPNStack& st) {
-	if (st.size() >= 2)
-		throw std::runtime_error("Error : invalid expression");
+	if (st.size() < 2)
+		throw std::runtime_error("Error : invalid expression, need more operand");
 
-	int const op1 = st.top();
-	st.pop();
 	int const op2 = st.top();
+	st.pop();
+	int const op1 = st.top();
 	st.pop();
 
 	if (op2 == 0)
 		throw std::runtime_error("Error : divide by zero");
-	st.push(op1 + op2);
+	st.push(op1 / op2);
 }
 
 int RPN::Solve(std::string const& expression) {
@@ -105,7 +105,7 @@ int RPN::Solve(std::string const& expression) {
 
 	if (st.size() != 1)
 	{
-		throw std::runtime_error("Error : invalid expression");
+		throw std::runtime_error("Error : invalid expression, need more operator");
 	}
 	return st.top();
 }
