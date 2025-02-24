@@ -44,7 +44,7 @@ static bool DateFormatCheck(std::string const& date)
 	char c;
 
 	// parse check
-	if (!(ss >> yy >> c >> mm >> c >> dd))
+	if (!(ss >> yy >> c >> mm >> c >> dd) || !ss.eof())
 	{
 		return false;
 	}
@@ -102,7 +102,7 @@ static std::pair<std::string, float> ParseInputLine(std::string const& line)
 	char c = '\0';
 
 	std::stringstream ss(line);
-	if (!InputContentCheck(line) || !(ss >> result.first >> c >> result.second) || c != '|' || !ss.eof())
+	if (!InputContentCheck(line) || !(ss >> result.first >> c >> result.second) || c != '|' || !ss.eof() || !DateFormatCheck(result.first))
 	{
 		throw std::runtime_error("Error : bad input => " + line);
 	}
