@@ -80,6 +80,6 @@ int main(int argc, char* argv[]) {
 		double time = (static_cast<double>(end - start) * 1000) / CLOCKS_PER_SEC;
 
 		// print time
-		std::cout << std::endl << "Time to process a range of " << input.size() << " with std::deque : " << time << "us" << std::endl;
+		std::cout << "Time to process a range of " << input.size() << " with std::deque : " << time << "us" << std::endl;
 	}
 }
