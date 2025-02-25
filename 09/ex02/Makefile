@@ -4,7 +4,7 @@ NAME = PmergeMe
 # compiler
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-LDXXFLAGS = main.cpp PmergeMe.cpp PmergeMeVector.cpp
+LDXXFLAGS = main.cpp PmergeMe.cpp PmergeMeVector.cpp PmergeMeDeque.cpp
 
 SRCS =
 
