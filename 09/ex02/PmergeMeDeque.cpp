@@ -7,11 +7,11 @@
 #include <algorithm>
 #include <utility>
 
-static int GetFirstFromPair(pii const p) {
+static int GetSecondFromPair(pii const p) {
 	return p.first;
 }
 
-static int GetMatchFromMap(FirstPairContainer const& map, int const key) {
+static int GetMatchFromMap(SecondPairContainer const& map, int const key) {
 	for (size_t i = 0; i < map.size(); ++i)
 	{
 		// there are no duplicates, so the pair is unique
@@ -24,15 +24,15 @@ static int GetMatchFromMap(FirstPairContainer const& map, int const key) {
 	return -1;
 }
 
-static void InsertValueInRangeOrderly(int const limit, int const value, FirstContainer& dest)
+static void InsertValueInRangeOrderly(int const limit, int const value, SecondContainer& dest)
 {
 	// find insert position using upper_bound
-	FirstContainer::iterator insert_pos = std::upper_bound(dest.begin(), dest.begin() + limit, value);
+	SecondContainer::iterator insert_pos = std::upper_bound(dest.begin(), dest.begin() + limit, value);
 	dest.insert(insert_pos, value);
 }
 
 static void InsertRangeInOrderly(size_t const left, size_t const right, size_t const jacobthal_size,
-	FirstPairContainer const& pairs, FirstContainer const& source, FirstContainer& dest)
+	SecondPairContainer const& pairs, SecondContainer const& source, SecondContainer& dest)
 {
 	// insert
 	for (size_t i = std::min(right, source.size()) - 1; i >= left; --i)
@@ -42,7 +42,7 @@ static void InsertRangeInOrderly(size_t const left, size_t const right, size_t c
 	}
 }
 
-FirstContainer PmergeMe::Sort(FirstContainer const& seq)
+SecondContainer PmergeMe::Sort(SecondContainer const& seq)
 {
 	// base case
 	if (seq.size() == 1)
@@ -51,22 +51,22 @@ FirstContainer PmergeMe::Sort(FirstContainer const& seq)
 	}
 
 	// making pair -> how about odd?
-	FirstPairContainer main_sub_map;
+	SecondPairContainer main_sub_map;
 	for (size_t i = 0; i < seq.size() / 2; ++i)
 	{
 		main_sub_map.push_back(std::make_pair(std::max(seq[2 * i], seq[2 * i + 1]), std::min(seq[2 * i], seq[2 * i + 1])));
 	}
 
 	// transform, get first
-	FirstContainer unsorted_bigger_seq;
-	std::transform(main_sub_map.begin(), main_sub_map.end(), std::back_inserter(unsorted_bigger_seq), GetFirstFromPair);
+	SecondContainer unsorted_bigger_seq;
+	std::transform(main_sub_map.begin(), main_sub_map.end(), std::back_inserter(unsorted_bigger_seq), GetSecondFromPair);
 
 	// sort, recurse
-	FirstContainer sorted_seq = Sort(unsorted_bigger_seq);
+	SecondContainer sorted_seq = Sort(unsorted_bigger_seq);
 
 	// merge with insertion, jacobsthal seq
 	// first, just push
-	FirstContainer result = sorted_seq;
+	SecondContainer result = sorted_seq;
 	result.insert(result.begin(), GetMatchFromMap(main_sub_map, sorted_seq[0]));
 
 	// insert with jacobsthal seq

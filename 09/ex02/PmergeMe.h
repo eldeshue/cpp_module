@@ -5,7 +5,7 @@
 #include <vector>
 #include <deque>
 
-#define JACOBSTHAL_SEQ_MAX 19
+#define JACOBSTHAL_SEQ_MAX 20
 
 typedef std::vector<int> FirstContainer;
 typedef std::deque<int> SecondContainer;
@@ -26,7 +26,7 @@ private:
 
 public:
 	static FirstContainer Sort(FirstContainer const& container);
-	//	static SecondContainer Sort(SecondContainer const& container);
+	static SecondContainer Sort(SecondContainer const& container);
 };
 
 
