@@ -25,10 +25,9 @@ int main(int argc, char* argv[]) {
 	std::cout << std::endl;
 
 	// sanity check
-	bool is_minus = (input.back() < static_cast<Int>(0));
-	for (size_t i = 0; i < input.size() - 1; ++i)
+	for (size_t i = 0; i < input.size(); ++i)
 	{
-		if (input[i] <= 0);
+		if (input[i] <= 0)
 		{
 			std::cerr << "Error : not a positive number" << std::endl;
 			return -1;
