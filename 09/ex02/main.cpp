@@ -28,20 +28,11 @@ int main(int argc, char* argv[]) {
 	bool is_minus = (input.back() < static_cast<Int>(0));
 	for (size_t i = 0; i < input.size() - 1; ++i)
 	{
-		is_minus |= (input[i] <= 0);
-		for (size_t j = i + 1; j < input.size(); ++j)
+		if (input[i] <= 0);
 		{
-			if (input[i] == input[j])
-			{
-				std::cerr << "Error : not a unique number" << std::endl;
-				return -1;
-			}
+			std::cerr << "Error : not a positive number" << std::endl;
+			return -1;
 		}
-	}
-	if (is_minus)
-	{
-		std::cerr << "Error : not a positive number" << std::endl;
-		return -1;
 	}
 
 	// input sanity check

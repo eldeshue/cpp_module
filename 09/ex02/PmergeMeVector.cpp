@@ -11,12 +11,13 @@ static Int GetFirstFromPair(pii const p) {
 	return p.first;
 }
 
-static Int GetMatchFromMap(FirstPairContainer const& map, Int const key) {
+static Int GetMatchFromMap(FirstPairContainer& map, Int const key) {
 	for (size_t i = 0; i < map.size(); ++i)
 	{
 		// there are no duplicates, so the pair is unique
 		if (map[i].first == key)
 		{
+			map[i].first = -1;	// found
 			return map[i].second;
 		}
 
@@ -32,7 +33,7 @@ static void InsertValueInRangeOrderly(Int const limit, Int const value, FirstCon
 }
 
 static void InsertRangeInOrderly(size_t const left, size_t const right, size_t const jacobthal_size,
-	FirstPairContainer const& pairs, FirstContainer const& source, FirstContainer& dest)
+	FirstPairContainer& pairs, FirstContainer const& source, FirstContainer& dest)
 {
 	// insert
 	for (size_t i = std::min(right, source.size()) - 1; i >= left; --i)
