@@ -7,11 +7,11 @@
 #include <algorithm>
 #include <utility>
 
-static int GetFirstFromPair(pii const p) {
+static Int GetFirstFromPair(pii const p) {
 	return p.first;
 }
 
-static int GetMatchFromMap(FirstPairContainer const& map, int const key) {
+static Int GetMatchFromMap(FirstPairContainer const& map, Int const key) {
 	for (size_t i = 0; i < map.size(); ++i)
 	{
 		// there are no duplicates, so the pair is unique
@@ -24,7 +24,7 @@ static int GetMatchFromMap(FirstPairContainer const& map, int const key) {
 	return -1;
 }
 
-static void InsertValueInRangeOrderly(int const limit, int const value, FirstContainer& dest)
+static void InsertValueInRangeOrderly(Int const limit, Int const value, FirstContainer& dest)
 {
 	// find insert position using upper_bound
 	FirstContainer::iterator insert_pos = std::upper_bound(dest.begin(), dest.begin() + limit, value);
@@ -37,7 +37,7 @@ static void InsertRangeInOrderly(size_t const left, size_t const right, size_t c
 	// insert
 	for (size_t i = std::min(right, source.size()) - 1; i >= left; --i)
 	{
-		int const match = GetMatchFromMap(pairs, source[i]);
+		Int const match = GetMatchFromMap(pairs, source[i]);
 		InsertValueInRangeOrderly(std::min(jacobthal_size, dest.size()), match, dest);
 	}
 }

@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 
 	// get input
 	// positive number check, duplicate check
-	std::vector<int> input;
+	std::vector<Int> input;
 	std::cout << "Before : ";
 	for (int i = 1; i < argc; ++i)
 	{
@@ -25,11 +25,11 @@ int main(int argc, char* argv[]) {
 	std::cout << std::endl;
 
 	// sanity check
-	bool is_minus = (input.back() < 0);
-	for (int i = 0; i < input.size() - 1; ++i)
+	bool is_minus = (input.back() < static_cast<Int>(0));
+	for (size_t i = 0; i < input.size() - 1; ++i)
 	{
 		is_minus |= (input[i] <= 0);
-		for (int j = i + 1; j < input.size(); ++j)
+		for (size_t j = i + 1; j < input.size(); ++j)
 		{
 			if (input[i] == input[j])
 			{
@@ -46,16 +46,17 @@ int main(int argc, char* argv[]) {
 
 	// input sanity check
 	{
+		Int::SetCompareCnt(0);
 		// sort
 		clock_t start = clock();
-		std::vector<int> result = PmergeMe::Sort(input);
+		std::vector<Int> result = PmergeMe::Sort(input);
 		clock_t end = clock();
 		double time = (static_cast<double>(end - start) * 1000) / CLOCKS_PER_SEC;
 
 
 		// after sort, print
 		std::cout << "After : " << result[0];
-		for (int i = 1; i < result.size(); ++i)
+		for (size_t i = 1; i < result.size(); ++i)
 		{
 			if (result[i - 1] > result[i])
 			{
@@ -66,20 +67,21 @@ int main(int argc, char* argv[]) {
 		}
 
 		// print time
-		std::cout << std::endl << "Time to process a range of " << input.size() << " with std::vector : " << time << "us" << std::endl;
+		std::cout << "\nTime to process a range of " << input.size() << " with std::vector : " << time << "us\n" << "Compare Count : " << Int::GetCompareCnt() << std::endl;
 	}
 
 	{
 		// second : deque
-		std::deque<int> input2(input.begin(), input.end());
+		std::deque<Int> input2(input.begin(), input.end());
 
+		Int::SetCompareCnt(0);
 		// sort
 		clock_t start = clock();
-		std::deque<int> result = PmergeMe::Sort(input2);
+		std::deque<Int> result = PmergeMe::Sort(input2);
 		clock_t end = clock();
 		double time = (static_cast<double>(end - start) * 1000) / CLOCKS_PER_SEC;
 
 		// print time
-		std::cout << "Time to process a range of " << input.size() << " with std::deque : " << time << "us" << std::endl;
+		std::cout << "Time to process a range of " << input.size() << " with std::deque : " << time << "us\n" << "Compare Count : " << Int::GetCompareCnt() << std::endl;
 	}
 }

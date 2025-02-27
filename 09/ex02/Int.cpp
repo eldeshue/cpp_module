@@ -1,7 +1,7 @@
 
 #include "Int.h"
 
-static int compare_count = 0;
+int Int::compare_count = 0;
 
 Int::Int() : value(0) {}
 Int::Int(int const n) : value(n) {}

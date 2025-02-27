@@ -4,9 +4,9 @@ NAME = PmergeMe
 # compiler
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-LDXXFLAGS = main.cpp PmergeMe.cpp PmergeMeVector.cpp PmergeMeDeque.cpp
+LDXXFLAGS =
 
-SRCS =
+SRCS = Int.cpp main.cpp PmergeMe.cpp PmergeMeDeque.cpp PmergeMeVector.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

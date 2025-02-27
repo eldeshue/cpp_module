@@ -5,12 +5,14 @@
 #include <vector>
 #include <deque>
 
+#include "Int.h"
+
 #define JACOBSTHAL_SEQ_MAX 20
 
-typedef std::vector<int> FirstContainer;
-typedef std::deque<int> SecondContainer;
+typedef std::vector<Int> FirstContainer;
+typedef std::deque<Int> SecondContainer;
 
-typedef std::pair<int, int> pii;
+typedef std::pair<Int, Int> pii;
 typedef std::vector<pii> FirstPairContainer;
 typedef std::deque<pii> SecondPairContainer;
 
