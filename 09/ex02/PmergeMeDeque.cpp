@@ -54,7 +54,11 @@ SecondContainer PmergeMe::Sort(SecondContainer const& seq)
 	SecondPairContainer main_sub_map;
 	for (size_t i = 0; i < seq.size() / 2; ++i)
 	{
-		main_sub_map.push_back(std::make_pair(std::max(seq[2 * i], seq[2 * i + 1]), std::min(seq[2 * i], seq[2 * i + 1])));
+		main_sub_map.push_back
+		(
+			(seq[2 * i] < seq[2 * i + 1]) ?
+			(std::make_pair(seq[2 * i + 1], seq[2 * i])) : (std::make_pair(seq[2 * i], seq[2 * i + 1]))
+		);
 	}
 
 	// transform, get first
